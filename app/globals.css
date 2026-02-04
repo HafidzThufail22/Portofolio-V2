@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
+/* ============================================
+   Soft Dark Mode Design System
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background Colors - Soft Black (avoid pure #000000) */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --background-tertiary: #171717;
+
+  /* Text Colors - Glowing Gray / Silver */
+  --foreground: #e5e7eb;
+  --foreground-muted: #9ca3af;
+  --foreground-subtle: #6b7280;
+
+  /* Accent Colors */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-glow: rgba(59, 130, 246, 0.5);
+
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-glow: rgba(139, 92, 246, 0.5);
+
+  /* Border & Card */
+  --border: #27272a;
+  --card: #111111;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-border: var(--border);
+  --color-card: var(--card);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ============================================
+   Base Styles
+   ============================================ */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* ============================================
+   Glow Effects - Utility Classes
+   ============================================ */
+
+/* Apply to important buttons, cards, or elements */
+.glow-primary {
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.glow-primary-sm {
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Animated glow on hover */
+.hover-glow:hover {
+  box-shadow: 0 0 25px var(--primary-glow);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Subtle border glow */
+.glow-border {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+}
+
+/* Pulsing glow animation */
+.animate-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--primary-glow);
+  }
+}
+
+/* Text glow for headings */
+.text-glow {
+  text-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* ============================================
+   Custom Scrollbar (Dark Theme)
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-subtle);
+}
+
+/* ============================================
+   Selection & Focus States
+   ============================================ */
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
