@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "John Doe | Full Stack Developer",
-  description: "Portfolio website of John Doe - Full Stack Developer specializing in React, Next.js, and Node.js. Building digital experiences with passion and precision.",
+  title: "Hafidz Thufail | Full Stack Developer",
+  description: "Portfolio website of Hafidz Thufail - Full Stack Developer specializing in React, Next.js, and Node.js. Building digital experiences with passion and precision.",
   keywords: ["Full Stack Developer", "Web Developer", "React", "Next.js", "Portfolio", "Indonesia"],
-  authors: [{ name: "John Doe" }],
+  authors: [{ name: "Hafidz Thufail" }],
   openGraph: {
-    title: "John Doe | Full Stack Developer",
+    title: "Hafidz Thufail | Full Stack Developer",
     description: "Building digital experiences with passion and precision.",
     type: "website",
     locale: "id_ID",
