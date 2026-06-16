@@ -1,9 +1,3 @@
-/**
- * Card Component
- * 
- * A versatile card component for displaying content in a contained box.
- */
-
 import { cn } from '@/lib/utils';
 import { HTMLAttributes, forwardRef } from 'react';
 
