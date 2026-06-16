@@ -1,167 +1,218 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { Navbar } from "@/components/ui/Navbar";
+import { MdEmail } from "react-icons/md";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { Navbar } from "@/components/layout/Navbar";
+
+const socialLinks = [
+  {
+    icon: MdEmail,
+    href: "mailto:hafidzthufail@email.com",
+    label: "Email",
+    ariaLabel: "Send Email",
+  },
+  {
+    icon: FaGithub,
+    href: "https://github.com/HafidzThufail22",
+    label: "GitHub",
+    ariaLabel: "Visit GitHub Profile",
+  },
+  {
+    icon: FaLinkedin,
+    href: "https://linkedin.com/in/hafidzthufail",
+    label: "LinkedIn",
+    ariaLabel: "Visit LinkedIn Profile",
+  },
+];
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [showText, setShowText] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
-  // Show text after 1.5 seconds delay
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowText(true);
-    }, 1500);
+    const timer = setTimeout(() => setShowContent(true), 400);
     return () => clearTimeout(timer);
   }, []);
 
-  // Track scroll progress within the hero section
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Image gets smaller when scrolling (only the image, not text)
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.6]);
-  const imageY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
-
-  // Navbar visibility (appears after 40% scroll)
-  const navbarOpacity = useTransform(scrollYProgress, [0.35, 0.5], [0, 1]);
-
-  // Scroll indicator fades out
-  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-
   return (
     <>
-      <motion.div style={{ opacity: navbarOpacity }}>
-        <Navbar isVisible={true} />
-      </motion.div>
+      <Navbar />
 
-      <section
-        ref={sectionRef}
-        id="home"
-        className="relative h-[200vh] bg-zinc-950"
-      >
-        {/* Sticky Container */}
-        <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
-          {/* Background Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/50 via-zinc-950 to-zinc-950" />
+      <section id="home" className="relative h-screen bg-background overflow-hidden">
 
-          {/* Subtle Grid Pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-            }}
+        {/* ── PORTFOLIO YEAR — upper left, beside photo ── */}
+        <motion.div
+          initial={{ opacity: 0, x: -16 }}
+          animate={showContent ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="absolute top-[28%] left-24 md:left-28 z-20"
+        >
+          <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-foreground/40 font-medium leading-relaxed">
+            Portfolio
+          </p>
+          <p className="text-3xl md:text-4xl font-bold text-foreground/20 tracking-tight leading-none">
+            2026
+          </p>
+        </motion.div>
+
+        {/* Background — subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        {/* ── PROFILE PHOTO — centered, flush to bottom ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10"
+          style={{
+            width: "clamp(260px, 36vw, 520px)",
+            height: "clamp(340px, 75vh, 750px)",
+          }}
+        >
+          <Image
+            src="/images/profile.png"
+            alt="Hafidz Thufail — Full Stack Developer"
+            fill
+            className="object-cover object-top"
+            style={{ objectPosition: "center top" }}
+            priority
           />
+          {/* Subtle bottom fade to blend with background */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+        </motion.div>
 
-          {/* Profile Image - Separate layer, scales on scroll */}
-          <motion.div
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            style={{ scale: imageScale, y: imageY }}
-            className="absolute z-10"
-          >
-            {/* Glow Effect Behind Image */}
-            <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-3xl scale-125" />
+        {/* ── SOCIAL ICONS — bottom left ── */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={showContent ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+          transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+          className="absolute left-8 md:left-12 bottom-14 z-20 flex flex-col items-center gap-5"
+        >
+          {/* Vertical line above icons */}
+          <div className="w-px h-12 bg-foreground/20" />
 
-            {/* Profile Image Container - Large */}
-            <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px] rounded-full overflow-hidden border-4 border-zinc-800/50 shadow-2xl">
-              <Image
-                src="/images/profile.png"
-                alt="Profile"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-              {/* Dark Overlay at Bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
-            </div>
-          </motion.div>
-
-          {/* Text Content - Fixed position, appears after delay, does NOT scale */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={showText ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute z-20 bottom-[20%] md:bottom-[18%] lg:bottom-[15%] text-center px-4"
-          >
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-3 md:mb-4 tracking-tight drop-shadow-2xl">
-              Building Digital{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-                Value.
+          {socialLinks.map(({ icon: Icon, href, label, ariaLabel }, index) => (
+            <motion.a
+              key={label}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              aria-label={ariaLabel}
+              initial={{ opacity: 0, y: 10 }}
+              animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
+              whileHover={{ scale: 1.2, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative flex items-center justify-center w-10 h-10 rounded-full
+                border border-foreground/15 bg-background/60 backdrop-blur-sm
+                text-foreground/50 hover:text-foreground hover:border-foreground/40
+                transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]"
+            >
+              <Icon size={18} />
+              {/* Tooltip */}
+              <span
+                className="absolute left-12 text-xs font-medium text-foreground/60 whitespace-nowrap
+                opacity-0 group-hover:opacity-100 translate-x-1 group-hover:translate-x-0
+                transition-all duration-200 pointer-events-none"
+              >
+                {label}
               </span>
+            </motion.a>
+          ))}
+
+          {/* Vertical line below icons */}
+          <div className="w-px h-12 bg-foreground/20" />
+        </motion.div>
+
+        {/* ── NAME TEXT — right side ── */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={showContent ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="absolute right-6 md:right-10 lg:right-14 z-20
+            flex flex-col justify-center
+            top-1/2 -translate-y-1/2"
+        >
+          {/* Name — large bold */}
+          <div className="leading-none text-right">
+            <h1
+              className="font-bold text-foreground tracking-tighter block"
+              style={{ fontSize: "clamp(3rem, 7vw, 8rem)", lineHeight: 0.9 }}
+            >
+              Hafidz
             </h1>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={showText ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-base md:text-lg lg:text-xl text-zinc-300 mb-6 md:mb-8 max-w-xl mx-auto drop-shadow-lg"
+            <h1
+              className="font-bold tracking-tighter block"
+              style={{
+                fontSize: "clamp(3rem, 7vw, 8rem)",
+                lineHeight: 0.9,
+                WebkitTextStroke: "1.5px var(--foreground)",
+                color: "transparent",
+              }}
             >
-              Full Stack Developer & UI/UX Designer crafting exceptional digital experiences
-            </motion.p>
+              Thufail.
+            </h1>
+          </div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={showText ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
-            >
-              <Link
-                href="#projects"
-                className="inline-flex h-11 md:h-12 px-6 md:px-8 items-center justify-center rounded-full bg-blue-600 text-white font-medium hover:bg-blue-500 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] text-sm md:text-base"
-              >
-                View Projects
-                <svg
-                  className="ml-2 w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-              <Link
-                href="#contact"
-                className="inline-flex h-11 md:h-12 px-6 md:px-8 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 font-medium hover:bg-zinc-800/50 hover:border-zinc-600 transition-all text-sm md:text-base"
-              >
-                Contact Me
-              </Link>
-            </motion.div>
-          </motion.div>
+          {/* Divider */}
+          <div className="w-full h-px bg-foreground/20 my-5" />
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={showText ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            style={{ opacity: scrollIndicatorOpacity }}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30"
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="text-foreground/50 text-right text-xs md:text-sm tracking-widest uppercase font-medium"
           >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-5 h-8 rounded-full border-2 border-zinc-700 flex items-start justify-center p-1.5"
+            Full Stack Developer
+            <br />
+            <span className="text-foreground/30">&amp; UI/UX Designer</span>
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+            className="flex flex-col sm:flex-row gap-3 mt-8 justify-end"
+          >
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex h-10 px-6 items-center justify-center rounded-full
+                bg-foreground text-background text-xs font-semibold tracking-wider uppercase
+                hover:bg-foreground/90 transition-all duration-300
+                hover:shadow-[0_0_24px_rgba(255,255,255,0.15)]"
             >
-              <motion.div className="w-1 h-1 rounded-full bg-zinc-400" />
-            </motion.div>
+              View Work
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex h-10 px-6 items-center justify-center rounded-full
+                border border-foreground/25 text-foreground/60 text-xs font-semibold tracking-wider uppercase
+                hover:border-foreground/50 hover:text-foreground transition-all duration-300"
+            >
+              Contact
+            </a>
           </motion.div>
-        </div>
+        </motion.div>
+
       </section>
     </>
   );

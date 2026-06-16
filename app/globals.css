@@ -5,14 +5,14 @@
    ============================================ */
 
 :root {
-  /* Background Colors - Soft Black (avoid pure #000000) */
-  --background: #0a0a0a;
-  --background-secondary: #111111;
-  --background-tertiary: #171717;
+  /* Background Colors - Creamy White */
+  --background: #fdfbf7;
+  --background-secondary: #f4f0ea;
+  --background-tertiary: #ebe5dd;
 
-  /* Text Colors - Glowing Gray / Silver */
-  --foreground: #e5e7eb;
-  --foreground-muted: #9ca3af;
+  /* Text Colors - Dark */
+  --foreground: #1a1a1a;
+  --foreground-muted: #4b5563;
   --foreground-subtle: #6b7280;
 
   /* Accent Colors */
@@ -25,8 +25,8 @@
   --accent-glow: rgba(139, 92, 246, 0.5);
 
   /* Border & Card */
-  --border: #27272a;
-  --card: #111111;
+  --border: #e5e7eb;
+  --card: #ffffff;
 }
 
 @theme inline {
