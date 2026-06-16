@@ -57,13 +57,13 @@ export function Hero() {
           </p>
         </motion.div>
 
-        {/* Background — grid */}
+        {/* Background — subtle grid */}
         <div
-          className="absolute inset-0 opacity-[0.07]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px),
                               linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
-            backgroundSize: "50px 50px",
+            backgroundSize: "60px 60px",
           }}
         />
 
