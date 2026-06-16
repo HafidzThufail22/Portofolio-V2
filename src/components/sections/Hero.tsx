@@ -40,14 +40,14 @@ export function Hero() {
     <>
       <Navbar />
 
-      <section id="home" className="relative h-screen bg-background overflow-hidden">
+      <section id="home" className="relative min-h-[100svh] flex flex-col justify-end md:justify-center bg-background overflow-hidden pb-10 md:pb-0">
 
         {/* ── PORTFOLIO YEAR — upper left, beside photo ── */}
         <motion.div
           initial={{ opacity: 0, x: -16 }}
           animate={showContent ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-[28%] left-24 md:left-28 z-20"
+          className="absolute top-24 left-6 md:top-[28%] md:left-28 z-20"
         >
           <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-foreground/40 font-medium leading-relaxed">
             Portofolio
@@ -104,7 +104,7 @@ export function Hero() {
           initial={{ opacity: 0, x: -20 }}
           animate={showContent ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
           transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
-          className="absolute left-8 md:left-12 bottom-14 z-20 flex flex-col items-center gap-5"
+          className="hidden md:flex absolute left-8 md:left-12 bottom-14 z-20 flex-col items-center gap-5"
         >
           {/* Vertical line above icons */}
           <div className="w-px h-12 bg-foreground/20" />
@@ -144,15 +144,14 @@ export function Hero() {
 
         {/* ── NAME TEXT — right side ── */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={showContent ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="absolute right-6 md:right-10 lg:right-14 z-20
-            flex flex-col justify-center
-            top-1/2 -translate-y-1/2"
+          className="relative z-30 flex flex-col items-center md:items-end text-center md:text-right px-6 mt-auto w-full 
+            md:w-auto md:absolute md:mt-0 md:right-10 lg:right-14 md:top-1/2 md:-translate-y-1/2"
         >
           {/* Name — large bold */}
-          <div className="leading-none text-right">
+          <div className="leading-none flex flex-col items-center md:items-end">
             <h1
               className="font-bold text-foreground tracking-tighter block"
               style={{ fontSize: "clamp(3rem, 7vw, 8rem)", lineHeight: 0.9 }}
@@ -173,14 +172,14 @@ export function Hero() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-foreground/20 my-5" />
+          <div className="w-1/2 md:w-full h-px bg-foreground/20 my-5" />
 
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 0.9 }}
-            className="text-foreground/50 text-right text-xs md:text-sm tracking-widest uppercase font-medium"
+            className="text-foreground/80 md:text-foreground/50 text-xs md:text-sm tracking-widest uppercase font-medium"
           >
             Full Stack Developer
             <br />
@@ -192,7 +191,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 1.1 }}
-            className="flex flex-col sm:flex-row gap-3 mt-8 justify-end"
+            className="flex flex-row gap-3 mt-8 w-full justify-center md:justify-end"
           >
             <a
               href="#projects"

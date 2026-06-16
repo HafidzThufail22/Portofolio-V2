@@ -95,7 +95,7 @@ export function Navbar() {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="w-full px-10 py-6"
       >
-        <nav className="flex items-center justify-center gap-10">
+        <nav className="hidden md:flex items-center justify-center gap-10">
           {navLinks}
         </nav>
       </motion.div>
@@ -115,7 +115,7 @@ export function Navbar() {
           bg-background/60
           shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
 
-          <nav className="relative flex items-center justify-center gap-10 h-14 px-8">
+          <nav className="relative hidden md:flex items-center justify-center gap-10 h-14 px-8">
             {navLinks}
           </nav>
         </div>
@@ -152,12 +152,10 @@ export function Navbar() {
         </motion.div>
       </motion.div>
 
-      {/* Mobile toggle — only visible when scrolled (capsule mode) */}
-      <motion.button
-        animate={isScrolled ? { opacity: 1 } : { opacity: 0, pointerEvents: "none" }}
-        transition={{ duration: 0.3 }}
+      {/* Mobile toggle — always visible on mobile */}
+      <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="md:hidden absolute right-8 top-[1.6rem] p-2 text-foreground/50 hover:text-foreground transition-colors"
+        className="md:hidden absolute right-6 top-[1.4rem] z-[60] p-2 text-foreground hover:text-foreground/80 transition-colors bg-background/50 backdrop-blur-md rounded-full border border-foreground/10 shadow-sm"
         aria-label="Toggle menu"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -167,7 +165,7 @@ export function Navbar() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           )}
         </svg>
-      </motion.button>
+      </button>
     </motion.header>
   );
 }
