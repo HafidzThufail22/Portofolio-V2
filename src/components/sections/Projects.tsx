@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const projects = [
   {
@@ -9,14 +10,16 @@ const projects = [
     stack: "REACT · VITE · TYPESCRIPT · TAILWIND · MYSQL ",
     year: "2026",
     description: "A modern Single Page Application (SPA) developed by migrating a monolithic Laravel frontend to React. Designed using the Feature-Driven Development (FDD) methodology to significantly improve page loading speeds and user interaction. The system utilizes a multi-tenant architecture, allowing a single centralized Node.js Express backend to serve multiple regional platforms (including Klinik PKP Jawa III and Grobogan) dynamically through specific environment configurations. Fully deployed and optimized for production.",
-    link: "https://www.krsjawa3.com/"
+    link: "https://www.krsjawa3.com/",
+    image: "/images/project-img/krsjawa3.png"
   },
   {
     name: "GEMILANG RECRUITMENT MANAGEMENT SYSTEM",
-    stack: "REACT · VITE · TYPESCRIPT · TAILWIND · MYSQL",
+    stack: "REACT · EXPRESS.JS · PRISMA · VITE · NODE.JS · TYPESCRIPT · TAILWIND · MYSQL",
     year: "2026",
     description: "A comprehensive recruitment platform equipped with automated scoring rules, secure AWS S3 document handling, and a robust admin dashboard for seamless applicant tracking",
-    link: "https://recruitment.kamuhebat.com/"
+    link: "https://recruitment.kamuhebat.com/",
+    image: "/images/project-img/gemilangRecruitment.png"
   },
   {
     name: "DRIVING SCHOOL PLATFORM",
@@ -28,9 +31,10 @@ const projects = [
   {
     name: "COFFE SHOP MOBILE APP",
     stack: "UI/UX DESIGN · FIGMA · PROTOTYPE",
-    year: "2023",
+    year: "2025",
     description: "A visually appealing and user-friendly UI/UX design concept for a modern coffee shop application. The project focuses on streamlining the digital ordering experience, featuring an intuitive menu navigation, seamless checkout flow, and an engaging aesthetic that highlights the product imagery to attract coffee enthusiasts.",
-    link: "#"
+    link: "#",
+    image: "/images/project-img/coffeshop-mobileApp.jpg"
   }
 ];
 
@@ -153,7 +157,7 @@ export function Projects() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-12 pt-4 px-4 -mx-4 flex flex-col md:flex-row gap-8 lg:gap-24">
+                      <div className="pb-12 pt-4 px-4 -mx-4 flex flex-col md:flex-row md:items-center gap-8 lg:gap-24">
                         <div className="md:w-1/2 pl-0 md:pl-[6.5rem] lg:pl-[8.5rem]">
                           <p className="text-foreground-muted text-lg md:text-xl leading-relaxed mb-8">
                             {project.description}
@@ -170,9 +174,18 @@ export function Projects() {
                             </svg>
                           </a>
                         </div>
-                        {/* Optional Placeholder for Image/Video later */}
-                        <div className="md:w-1/2 h-48 md:h-auto rounded-2xl bg-foreground/[0.03] border border-border/50 flex items-center justify-center">
-                          <span className="text-foreground/30 text-sm tracking-widest uppercase">Project Preview</span>
+                        {/* Render Image or Placeholder */}
+                        <div className="w-full md:w-1/2 aspect-video relative rounded-2xl bg-foreground/[0.03] border border-border/50 overflow-hidden flex items-center justify-center">
+                          {project.image ? (
+                            <Image 
+                              src={project.image} 
+                              alt={project.name} 
+                              fill 
+                              className="object-cover transition-transform duration-700 hover:scale-105" 
+                            />
+                          ) : (
+                            <span className="text-foreground/30 text-sm tracking-widest uppercase">Image Coming Soon</span>
+                          )}
                         </div>
                       </div>
                     </motion.div>
