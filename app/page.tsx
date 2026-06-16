@@ -1,4 +1,4 @@
-import { Hero } from "@/components/sections";
+import { Hero, About } from "@/components/sections";
 import Link from "next/link";
 
 export default function Home() {
@@ -6,6 +6,9 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Hero Section with Intro Animation */}
       <Hero />
+
+      {/* About Section */}
+      <About />
 
       {/* Featured Projects Section */}
       <section id="projects" className="container mx-auto px-4 py-20 border-t border-border">
