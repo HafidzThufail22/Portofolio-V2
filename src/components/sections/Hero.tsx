@@ -10,7 +10,7 @@ import { Navbar } from "@/components/layout/Navbar";
 const socialLinks = [
   {
     icon: MdEmail,
-    href: "mailto:hafidzthufail@email.com",
+    href: "mailto:hafidzthufail22@email.com",
     label: "Email",
     ariaLabel: "Send Email",
   },
@@ -90,7 +90,7 @@ export function Hero() {
           }}
         >
           <Image
-            src="/images/profile.png"
+            src="/images/profile/profile.png"
             alt="Hafidz Thufail — Full Stack Developer"
             fill
             className="object-cover object-top"

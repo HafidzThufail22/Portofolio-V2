@@ -1,4 +1,4 @@
-import { Hero, About, Experience, Projects } from "@/components/sections";
+import { Hero, TechMarquee, About, Experience, Projects } from "@/components/sections";
 import Link from "next/link";
 
 export default function Home() {
@@ -6,6 +6,9 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Hero Section with Intro Animation */}
       <Hero />
+
+      {/* Looping Tech Marquee */}
+      <TechMarquee />
 
       {/* About Section */}
       <About />

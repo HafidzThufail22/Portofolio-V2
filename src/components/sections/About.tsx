@@ -31,9 +31,25 @@ export function About() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col space-y-8"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
-              Who I'am ?
-            </h1>
+            <div className="leading-none mb-8">
+              <h1
+                className="font-bold text-foreground tracking-tighter uppercase block"
+                style={{ fontSize: "clamp(3.5rem, 6vw, 6rem)", lineHeight: 0.9 }}
+              >
+                WHO
+              </h1>
+              <h1
+                className="font-bold tracking-tighter uppercase block"
+                style={{ 
+                  fontSize: "clamp(3.5rem, 6vw, 6rem)", 
+                  lineHeight: 0.9,
+                  WebkitTextStroke: "1.5px var(--foreground)",
+                  color: "transparent",
+                }}
+              >
+                .I'AM?
+              </h1>
+            </div>
             
             <div className="space-y-6 text-foreground-muted text-base md:text-lg leading-relaxed">
               <p>

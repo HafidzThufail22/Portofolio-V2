@@ -5,31 +5,31 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
-    name: "E-Commerce Platform",
-    stack: "NEXT.JS · TYPESCRIPT · PRISMA · TAILWIND",
+    name: "Klinik PKP Jawa III Information System",
+    stack: "REACT · VITE · TYPESCRIPT · TAILWIND · MYSQL ",
     year: "2026",
-    description: "Modern e-commerce platform with full payment gateway integration, seamless cart management, and a robust admin dashboard for inventory tracking.",
+    description: "A modern Single Page Application (SPA) developed by migrating a monolithic Laravel frontend to React. Designed using the Feature-Driven Development (FDD) methodology to significantly improve page loading speeds and user interaction. The system utilizes a multi-tenant architecture, allowing a single centralized Node.js Express backend to serve multiple regional platforms (including Klinik PKP Jawa III and Grobogan) dynamically through specific environment configurations. Fully deployed and optimized for production.",
+    link: "https://www.krsjawa3.com/"
+  },
+  {
+    name: "GEMILANG RECRUITMENT MANAGEMENT SYSTEM",
+    stack: "REACT · VITE · TYPESCRIPT · TAILWIND · MYSQL",
+    year: "2026",
+    description: "A comprehensive recruitment platform equipped with automated scoring rules, secure AWS S3 document handling, and a robust admin dashboard for seamless applicant tracking",
+    link: "https://recruitment.kamuhebat.com/"
+  },
+  {
+    name: "DRIVING SCHOOL PLATFORM",
+    stack: "NEXT.JS · TYPESCRIPT · SUPABASE · TAILWIND · POSTGRESQL",
+    year: "2026",
+    description: "A comprehensive web solution for a driving course agency. It delivers an engaging user experience for public visitors while empowering administrators with a custom dashboard to seamlessly manage course packages, staff roles, and company details.",
     link: "#"
   },
   {
-    name: "Task Management App",
-    stack: "REACT · SOCKET.IO · MONGODB · EXPRESS",
-    year: "2025",
-    description: "Real-time task management application enabling team collaboration, live updates, drag-and-drop boards, and detailed productivity analytics.",
-    link: "#"
-  },
-  {
-    name: "Restaurant Landing Page",
-    stack: "FIGMA · FRAMER MOTION · NEXT.JS",
-    year: "2024",
-    description: "High-performance marketing landing page with smooth scroll animations, interactive menus, and reservation system integrations.",
-    link: "#"
-  },
-  {
-    name: "AI Chatbot Assistant",
-    stack: "PYTHON · QDRANT · OPENAI · REACT",
+    name: "COFFE SHOP MOBILE APP",
+    stack: "UI/UX DESIGN · FIGMA · PROTOTYPE",
     year: "2023",
-    description: "Intelligent customer service chatbot built with RAG architecture, capable of answering context-specific queries based on company documentation.",
+    description: "A visually appealing and user-friendly UI/UX design concept for a modern coffee shop application. The project focuses on streamlining the digital ordering experience, featuring an intuitive menu navigation, seamless checkout flow, and an engaging aesthetic that highlights the product imagery to attract coffee enthusiasts.",
     link: "#"
   }
 ];
@@ -91,7 +91,7 @@ export function Projects() {
         </div>
 
         {/* ── PROJECTS LIST (ACCORDION) ── */}
-        <div className="border-t border-border/40">
+        <div className="border-t border-foreground/20">
           {projects.map((project, index) => {
             const isExpanded = expandedIndex === index;
             const numberString = (index + 1).toString().padStart(2, "0");
@@ -103,37 +103,37 @@ export function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border-b border-border/40 group"
+                className="border-b border-foreground/20"
               >
                 {/* Visible Row Header */}
                 <div 
                   onClick={() => toggleProject(index)}
-                  className="py-8 md:py-12 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer hover:bg-foreground/[0.02] transition-colors px-4 -mx-4 rounded-xl"
+                  className="group py-8 md:py-12 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer hover:bg-foreground transition-colors duration-300 px-6 -mx-6 rounded-xl"
                 >
                   {/* Left: Index & Name */}
                   <div className="flex items-center gap-8 md:gap-16 lg:gap-24 md:w-1/2">
-                    <span className="text-xs md:text-sm font-mono text-foreground-muted">
+                    <span className="text-xs md:text-sm font-mono text-foreground-muted group-hover:text-background/70 transition-colors duration-300">
                       {numberString}
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-foreground group-hover:text-background transition-colors duration-300">
                       {project.name}
                     </h2>
                   </div>
 
                   {/* Right: Stack, Year, Icon */}
                   <div className="flex items-center justify-between md:justify-end gap-8 md:gap-16 md:w-1/2">
-                    <span className="text-[10px] md:text-xs font-mono tracking-widest text-foreground/50 uppercase leading-relaxed max-w-[200px] md:max-w-xs">
+                    <span className="text-[10px] md:text-xs font-mono tracking-widest text-foreground/50 group-hover:text-background/60 transition-colors duration-300 uppercase leading-relaxed max-w-[200px] md:max-w-xs">
                       {project.stack}
                     </span>
                     
                     <div className="flex items-center gap-8 md:gap-16">
-                      <span className="text-sm md:text-base font-mono text-foreground-muted">
+                      <span className="text-sm md:text-base font-mono text-foreground-muted group-hover:text-background/70 transition-colors duration-300">
                         {project.year}
                       </span>
                       <motion.div
                         animate={{ rotate: isExpanded ? 45 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="text-foreground-muted"
+                        className="text-foreground-muted group-hover:text-background/70 transition-colors duration-300"
                       >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M7 17l9.2-9.2M17 17V7H7" />
