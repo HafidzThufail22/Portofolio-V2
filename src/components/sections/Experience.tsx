@@ -114,8 +114,8 @@ export function Experience() {
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground uppercase tracking-tight mb-2">
                       {exp.role}
                     </h2>
-                    {/* Using an orange/yellowish accent color for company like the reference */}
-                    <p className="text-[#eab308] font-medium text-lg">
+                    {/* Company name in monochrome style */}
+                    <p className="text-foreground-muted font-medium text-lg">
                       {exp.company}
                     </p>
                   </div>
