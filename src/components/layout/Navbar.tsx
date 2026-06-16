@@ -53,8 +53,8 @@ export function Navbar() {
 
   // Shared nav link style — same in both flat & capsule
   const linkClass = (href: string) =>
-    `relative text-sm font-medium tracking-widest uppercase transition-all duration-300 group ${
-      activeSection === href ? "text-foreground" : "text-foreground/50 hover:text-foreground"
+    `relative px-5 py-2 rounded-full text-sm font-medium tracking-widest uppercase transition-all duration-300 group ${
+      activeSection === href ? "text-foreground bg-foreground/10" : "text-foreground/50 hover:text-foreground hover:bg-foreground/10"
     }`;
 
   const navLinks = (
@@ -72,12 +72,6 @@ export function Navbar() {
             className={linkClass(item.href)}
           >
             {item.label}
-            {/* Underline indicator */}
-            <span
-              className={`absolute -bottom-1 left-0 h-px bg-foreground transition-all duration-300 ${
-                activeSection === item.href ? "w-full" : "w-0 group-hover:w-full"
-              }`}
-            />
           </Link>
         </motion.div>
       ))}
@@ -117,9 +111,9 @@ export function Navbar() {
         className="absolute top-5 left-1/2 -translate-x-1/2 w-[90%] max-w-3xl"
       >
         {/* Capsule container — just adds the pill frame */}
-        <div className="relative rounded-full border border-border/40 backdrop-blur-xl
-          bg-background/75
-          shadow-[0_4px_24px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.04)]">
+        <div className="relative rounded-full border border-foreground/10 backdrop-blur-xl
+          bg-background/60
+          shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
 
           <nav className="relative flex items-center justify-center gap-10 h-14 px-8">
             {navLinks}

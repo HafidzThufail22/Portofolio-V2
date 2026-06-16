@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
 
 const projects = [
   {
@@ -196,6 +197,39 @@ export function Projects() {
             );
           })}
         </div>
+
+        {/* ── EXPLORE MORE ON GITHUB ── */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 md:mt-24 flex justify-center"
+        >
+          <a 
+            href="https://github.com/HafidzThufail22" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group flex items-center gap-4 md:gap-6 text-foreground hover:text-foreground/80 transition-colors"
+          >
+            <FaGithub className="w-8 h-8 md:w-10 md:h-10" />
+            <span className="text-xl md:text-2xl font-bold tracking-tight uppercase">
+              Explore More on GitHub
+            </span>
+            <svg 
+              className="w-6 h-6 md:w-8 md:h-8 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M7 17L17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
