@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    period: "2024 — PRESENT",
+    period: "February 2026 — PRESENT",
     location: "INDONESIA",
-    type: "REMOTE",
-    role: "SOFTWARE ENGINEER",
-    company: "Tech Company",
+    type: "FREELANCE",
+    role: "FULL-STACK DEVELOPER",
+    company: "Kasiroke",
     description: "Owning broad engineering responsibilities across data ingestion pipelines, infrastructure operations, and full-stack product delivery.",
     bullets: [
       "Contributing to core products and internal tooling in a fast-moving engineering team.",
@@ -16,11 +16,11 @@ const experiences = [
     ]
   },
   {
-    period: "2022 — 2024",
-    location: "GLOBAL",
-    type: "REMOTE",
-    role: "INDEPENDENT FULL-STACK ENGINEER",
-    company: "Freelance",
+    period: "February 2026 — June 2026",
+    location: "YOGYAKARTA",
+    type: "INTERNSHIP",
+    role: "FRONT-END DEVELOPER",
+    company: "Balai P3KP Jawa III",
     description: "Helping teams build and ship end-to-end systems, from API and data layers to production web apps, including architecture and stack choices where needed.",
     bullets: [
       "Delivered full-stack web products with pragmatic performance, maintainability, and clear developer experience.",
@@ -28,15 +28,15 @@ const experiences = [
     ]
   },
   {
-    period: "2020 — 2022",
-    location: "JAKARTA",
-    type: "HYBRID",
-    role: "UI/UX DESIGNER & DEVELOPER",
-    company: "Digital Agency",
-    description: "Full-stack work on a curated marketplace with dashboards, APIs, and collaboration with designers.",
+    period: "September 2025 — January 2026",
+    location: "YOGYAKARTA",
+    type: "ACADEMIC",
+    role: "ASSISTANT LECTURER OF DATA STUCTURE",
+    company: "Digital Technology University of Indonesia",
+    description: "Assisted professors in guiding students through Data Structure laboratory sessions, ensuring a comprehensive understanding of core programming concepts and algorithms.",
     bullets: [
-      "Shipped three major product releases across marketplace and internal tooling.",
-      "Designed and implemented intuitive user interfaces from scratch, improving user retention by 20%."
+      "Mentored and evaluated students on complex data structure implementations, troubleshooting logic and syntax errors.",
+      "Facilitated hands-on coding sessions, creating an engaging and supportive learning environment for the class."
     ]
   }
 ];
