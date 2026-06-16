@@ -50,20 +50,20 @@ export function Hero() {
           className="absolute top-[28%] left-24 md:left-28 z-20"
         >
           <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-foreground/40 font-medium leading-relaxed">
-            Portfolio
+            Portofolio
           </p>
           <p className="text-3xl md:text-4xl font-bold text-foreground/20 tracking-tight leading-none">
             2026
           </p>
         </motion.div>
 
-        {/* Background — subtle grid */}
+        {/* Background — grid */}
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className="absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px),
                               linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
+            backgroundSize: "50px 50px",
           }}
         />
 
@@ -76,6 +76,17 @@ export function Hero() {
           style={{
             width: "clamp(260px, 36vw, 520px)",
             height: "clamp(340px, 75vh, 750px)",
+            // Mask fades all edges so container box disappears
+            WebkitMaskImage: `
+              linear-gradient(to bottom, transparent 0%, black 6%, black 52%, transparent 100%),
+              linear-gradient(to right,  transparent 0%, black 8%, black 92%, transparent 100%)
+            `,
+            WebkitMaskComposite: "source-in",
+            maskImage: `
+              linear-gradient(to bottom, transparent 0%, black 6%, black 52%, transparent 100%),
+              linear-gradient(to right,  transparent 0%, black 8%, black 92%, transparent 100%)
+            `,
+            maskComposite: "intersect",
           }}
         >
           <Image
@@ -86,8 +97,6 @@ export function Hero() {
             style={{ objectPosition: "center top" }}
             priority
           />
-          {/* Subtle bottom fade to blend with background */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
         </motion.div>
 
         {/* ── SOCIAL ICONS — bottom left ── */}
