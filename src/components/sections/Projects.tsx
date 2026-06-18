@@ -59,10 +59,10 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-sm mb-4 lg:mb-0"
+            className="max-w-lg mb-4 lg:mb-0"
           >
             <p className="text-foreground-muted text-base md:text-lg leading-relaxed">
-              Recent projects spanning full-stack development, interactive web, and product design — from concept to ship.
+              A curated showcase of my work: from architecting complex full-stack systems and modernizing legacy applications to crafting intuitive UI/UX experiences. Transforming intricate business requirements into seamless digital products.
             </p>
           </motion.div>
 

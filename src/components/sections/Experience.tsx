@@ -8,11 +8,11 @@ const experiences = [
     location: "INDONESIA",
     type: "FREELANCE",
     role: "FULL-STACK DEVELOPER",
-    company: "Kasiroke",
-    description: "Owning broad engineering responsibilities across data ingestion pipelines, infrastructure operations, and full-stack product delivery.",
+    company: "KasirOke",
+    description: "Freelance developer at KasirOke — a startup building integrated business software including POS (Point-of-Sale), HRIS, and ERP solutions for their clients. Currently spearheading the Gemilang project: a full-stack Recruitment Management System serving as one of KasirOke's client deployments.",
     bullets: [
-      "Contributing to core products and internal tooling in a fast-moving engineering team.",
-      "Improving customer-facing analytics workflows with attention to performance, reliability, and maintainability."
+      "Built the Gemilang Recruitment Management System end-to-end — featuring automated applicant scoring, AWS S3 document handling, and an admin dashboard for streamlined applicant tracking.",
+      "Worked within KasirOke's multi-product ecosystem (POS, HRIS, ERP), adapting system architecture and UI to meet the specific operational needs of each client's business."
     ]
   },
   {
@@ -21,22 +21,22 @@ const experiences = [
     type: "INTERNSHIP",
     role: "FRONT-END DEVELOPER",
     company: "Balai P3KP Jawa III",
-    description: "Helping teams build and ship end-to-end systems, from API and data layers to production web apps, including architecture and stack choices where needed.",
+    description: "Spearheaded the front-end modernization of the Klinik PKP Jawa III Information System, migrating a legacy monolithic Laravel architecture to a highly responsive React Single Page Application (SPA).",
     bullets: [
-      "Delivered full-stack web products with pragmatic performance, maintainability, and clear developer experience.",
-      "Worked asynchronously with founders and distributed teams with clear documentation and communication."
+      "Utilized Feature-Driven Development (FDD) methodology to build and structure the frontend, significantly improving page loading speeds and overall user interaction.",
+      "Developed a scalable front-end architecture that seamlessly integrates with a multi-tenant Node.js backend, capable of serving multiple regional platforms dynamically."
     ]
   },
   {
     period: "September 2025 — January 2026",
     location: "YOGYAKARTA",
     type: "ACADEMIC",
-    role: "ASSISTANT LECTURER OF DATA STUCTURE",
+    role: "ASSISTANT LECTURER OF DATA STRUCTURE",
     company: "Digital Technology University of Indonesia",
-    description: "Assisted professors in guiding students through Data Structure laboratory sessions, ensuring a comprehensive understanding of core programming concepts and algorithms.",
+    description: "Assisted the main lecturer in conducting Data Structure laboratory sessions (praktikum), guiding students through hands-on programming tasks and core algorithm implementations.",
     bullets: [
-      "Mentored and evaluated students on complex data structure implementations, troubleshooting logic and syntax errors.",
-      "Facilitated hands-on coding sessions, creating an engaging and supportive learning environment for the class."
+      "Facilitated laboratory practice sessions, actively mentoring students in troubleshooting code and understanding complex data structure logic.",
+      "Evaluated and graded student laboratory reports, ensuring accuracy in implementation and a comprehensive understanding of the learning material."
     ]
   }
 ];
@@ -75,8 +75,8 @@ export function Experience() {
                   Journey.
                 </h1>
               </div>
-              <p className="text-foreground-muted text-base md:text-lg max-w-md leading-relaxed">
-                I build production systems across web apps, APIs, and infrastructure. Here is a summary of my recent work experience and journey in the tech industry.
+              <p className="text-foreground-muted text-base md:text-lg max-w-xl leading-relaxed">
+                Navigating the intersection of intuitive design and robust engineering. My trajectory spans from mentoring peers in core algorithms, modernizing legacy systems into high-performance SPAs, to architecting scalable business platforms as a freelance full-stack developer. Here is a timeline of my continuous technical evolution.
               </p>
             </motion.div>
           </div>
