@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer id="contact" className="bg-background pt-24 pb-8 overflow-hidden border-t border-border/40">
-      <div className="container mx-auto px-6 md:px-12 lg:px-24">
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 md:px-12 lg:px-8 xl:px-16">
         
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between gap-16 mb-24">
