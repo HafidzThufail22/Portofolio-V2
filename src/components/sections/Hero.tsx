@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Navbar } from "@/components/layout/Navbar";
 
 const socialLinks = [
   {
@@ -37,10 +36,7 @@ export function Hero() {
   }, []);
 
   return (
-    <>
-      <Navbar />
-
-      <section id="home" className="relative min-h-[100svh] flex flex-col justify-end md:justify-center bg-background overflow-hidden pb-10 md:pb-0">
+    <section id="home" className="relative min-h-[100svh] flex flex-col justify-end md:justify-center bg-background overflow-hidden pb-10 md:pb-0">
 
         {/* ── PORTFOLIO YEAR — upper left, beside photo ── */}
         <motion.div
@@ -222,6 +218,5 @@ export function Hero() {
         </motion.div>
 
       </section>
-    </>
   );
 }

@@ -1,10 +1,11 @@
 import { Hero, TechMarquee, About, Experience, Projects } from "@/components/sections";
-import { Footer } from "@/components/layout/Footer";
-import Link from "next/link";
+import { Navbar, Footer } from "@/components/layout";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
+
       {/* Hero Section with Intro Animation */}
       <Hero />
 

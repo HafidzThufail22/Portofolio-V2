@@ -65,7 +65,7 @@ export function Footer() {
             className="font-bold text-foreground tracking-tighter uppercase whitespace-nowrap"
             style={{ fontSize: "clamp(3rem, 10vw, 10rem)", lineHeight: 0.9 }}
           >
-            LET'S
+            LET&apos;S
           </h1>
           <h1 
             className="font-bold tracking-tighter uppercase whitespace-nowrap"

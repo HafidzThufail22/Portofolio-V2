@@ -47,13 +47,13 @@ export function About() {
                   color: "transparent",
                 }}
               >
-                .I'AM?
+                .I&apos;M?
               </h1>
             </div>
             
             <div className="space-y-6 text-foreground-muted text-base md:text-lg leading-relaxed">
               <p>
-                I'm a Informatics Student at Digital Technology University of Indonesia, with a passion for UI/UX design and Web Development.
+                I&apos;m a Informatics Student at Digital Technology University of Indonesia, with a passion for UI/UX design and Web Development.
               </p>
               <p>
                 Currently, I am focusing on honing my skills as a Full-Stack Developer with the goal of building well-rounded web applications—combining intuitive interfaces from a designer’s perspective with robust and efficient backend system architecture.
