@@ -209,7 +209,7 @@ export function Projects() {
                       className="overflow-hidden"
                     >
                       <div className="pb-10 pt-2">
-                        <div className="bg-[#111111] text-[#fdfbf7] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-white/10 shadow-2xl">
+                        <div className="bg-[#111111] text-[#fdfbf7] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-white/10">
                           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
                             {/* Left Side: Title, Description, Bullet Highlights, CTA Button */}
